@@ -21,15 +21,10 @@
     width: 100%; height: 100%;
     padding: 35px 70px;
     display: none;
-    flex-direction: column;
-    justify-content: center;
     overflow-y: auto;
   }
   .slide.active { display: block; padding-top: 60px; }
-  .slide.active::before { content: ""; display: block; height: 0; }
-  .slide h1 {
-    font-size: 3em; margin-bottom: 20px; color: #00e0ff;
-  }
+  .slide h1 { font-size: 3em; margin-bottom: 20px; color: #00e0ff; }
   .slide h2 {
     font-size: 1.9em; margin-bottom: 18px; color: #00e0ff;
     border-bottom: 3px solid #00e0ff; padding-bottom: 8px;
@@ -52,10 +47,7 @@
     margin-right: auto;
     background: #000;
   }
-  .img-row {
-    text-align: center;
-    margin-top: 15px;
-  }
+  .img-row { text-align: center; margin-top: 15px; }
   .img-row .slide-img {
     max-width: 44%;
     max-height: 36vh;
@@ -66,68 +58,47 @@
   .title-slide { text-align: center; background: #0f2027; }
   .title-slide h1 { font-size: 3.5em; }
   .title-slide p { font-size: 1.4em; color: #b0e0ff; margin-top: 15px; }
-
   .controls {
     position: fixed; bottom: 20px; left: 50%;
-    margin-left: -160px;
-    width: 320px;
-    text-align: center;
-    background: rgba(0,0,0,0.7);
-    padding: 10px 0;
-    border-radius: 40px;
-    z-index: 100;
+    margin-left: -160px; width: 320px; text-align: center;
+    background: rgba(0,0,0,0.7); padding: 10px 0;
+    border-radius: 40px; z-index: 100;
   }
   .controls button {
     background: #00e0ff; color: #0f2027; border: none;
     padding: 10px 18px; border-radius: 20px; font-size: 1em;
-    font-weight: bold; cursor: pointer;
-    vertical-align: middle;
+    font-weight: bold; cursor: pointer; vertical-align: middle;
   }
   .controls button:hover { background: #ff6b35; color: #fff; }
   .controls button:disabled { opacity: 0.3; cursor: not-allowed; }
   .counter {
-    font-size: 1em; color: #fff;
-    display: inline-block;
-    width: 80px;
-    text-align: center;
-    vertical-align: middle;
+    font-size: 1em; color: #fff; display: inline-block;
+    width: 80px; text-align: center; vertical-align: middle;
   }
   .progress {
     position: fixed; top: 0; left: 0; height: 4px;
-    background: #00e0ff;
-    width: 0;
-    z-index: 100;
+    background: #00e0ff; width: 0; z-index: 100;
   }
-
-  /* ===== Тест ===== */
   .quiz-slide .question {
     font-size: 1.35em; font-weight: bold; margin: 15px 0 25px;
     color: #fff; line-height: 1.4;
   }
   .answers { max-width: 92%; }
   .answers label {
-    display: block;
-    padding: 14px 22px; border-radius: 10px;
+    display: block; padding: 14px 22px; border-radius: 10px;
     background: rgba(0, 224, 255, 0.08);
     border: 2px solid rgba(0, 224, 255, 0.3);
     cursor: pointer; font-size: 1.05em;
-    margin-bottom: 12px;
-    color: #fff;
+    margin-bottom: 12px; color: #fff;
   }
-  .answers label:hover {
-    background: rgba(0, 224, 255, 0.18);
-  }
+  .answers label:hover { background: rgba(0, 224, 255, 0.18); }
   .answers input[type="radio"] {
-    width: 18px; height: 18px;
-    margin-right: 12px;
-    vertical-align: middle;
-    position: relative;
-    top: -1px;
+    width: 18px; height: 18px; margin-right: 12px;
+    vertical-align: middle; position: relative; top: -1px;
   }
   .result-item {
     padding: 12px 18px; border-radius: 10px; margin-bottom: 9px;
-    background: rgba(0,0,0,0.35);
-    border-left: 5px solid #666;
+    background: rgba(0,0,0,0.35); border-left: 5px solid #666;
     font-size: 0.98em; line-height: 1.45;
   }
   .result-item.correct { border-left-color: #2ecc71; background: rgba(46, 204, 113, 0.15); }
@@ -148,22 +119,21 @@
     font-size: 0.95em; font-weight: bold; cursor: pointer;
   }
   .copy-btn:hover { background: #00e0ff; color: #0f2027; }
-
-  #debug {
-    position: fixed; top: 5px; right: 5px;
-    background: #2ecc71; color: #000;
-    padding: 3px 8px; border-radius: 5px;
-    font-size: 11px;
-    z-index: 999;
-    display: none;
+  @media (max-width: 900px) {
+    .slide { padding: 25px 20px; }
+    .slide h1 { font-size: 2em; }
+    .slide h2 { font-size: 1.4em; }
+    .slide p, .slide li { font-size: 0.95em; }
+    .slide-img { max-width: 90%; max-height: 30vh; }
+    .img-row .slide-img { max-width: 90%; max-height: 26vh; }
+    .quiz-slide .question { font-size: 1.1em; }
+    .answers label { padding: 10px 14px; font-size: 0.95em; }
   }
 </style>
 </head>
 <body>
 
-<div id="debug">JS OK</div>
 <div class="progress" id="progress"></div>
-
 <div class="presentation" id="presentation">
 
   <!-- Слайд 1 -->
@@ -203,7 +173,7 @@
     <span class="year">1849 год</span>
     <p>Первым беспилотником в истории был <strong>аэростат с горячим дымом</strong> в войне Австрии против Венеции. Диаметр составлял 6,9 м, нёс такой аэростат 15-кг осколочно-фугасную гранату: фитиль пережигал верёвку и воспламенял запал, бомба падала и взрывалась, а шар взлетал.</p>
     <p>После удачных проб 12 и 15 июня Радецкий приказал начать массовое производство; к августу изготовили ~200 штук, 22 августа — первый налёт. Многие бомбы не сработали, но психологический эффект заставил венецианцев вскоре сдать город.</p>
-    <img src="images/01-balloon.jpg" alt="Аэростат-бомбардировщик" class="slide-img">
+    <img src="01-balloon.jpg" alt="Аэростат-бомбардировщик" class="slide-img">
   </div>
 
   <!-- Слайд 5 -->
@@ -213,7 +183,7 @@
     <p>Спустя полвека, в 1898 году в «Новом свете» на выставке изобретений в Мэдиссон Сквер Гарден в городе Нью-Йорк сербский учёный с мировым именем <strong>Никола Тесла</strong> представлял свой прототип всех будущих радиоуправляемых транспортных средств.</p>
     <p>В большом бассейне плавал странного вида для тех лет кораблик с длинной металлической антенной посреди палубы. С помощью специального пульта учёный мог им управлять дистанционно, без проводов, менять скорость передвижения, выполнять сложные маневры, мигать огоньками на борту судна. Команды передавались радиосигналами с пульта управления на приёмную антенну радиоуправляемого судна, после чего расшифровывались и, уже тогда, механика приходила в движение, выполняя указания Теслы, присланные с пульта. То есть, говоря современным языком, это была первая радиоуправляемая модель.</p>
     <p><strong>«Devil Automata»</strong> — автоматический дьявол, как Тесла называл это судно.</p>
-    <img src="images/02-tesla-boat.jpg" alt="Лодка Николы Теслы" class="slide-img">
+    <img src="02-tesla-boat.jpg" alt="Лодка Николы Теслы" class="slide-img">
   </div>
 
   <!-- Слайд 6 -->
@@ -223,7 +193,7 @@
     <p>Если до XX века полёты человек совершал на аппаратах легче воздуха, подобных дирижаблям и аэростатам, то начало нового столетия ознаменовало полёты на аппаратах тяжелее воздуха.</p>
     <p>Пионеры пилотируемой авиации самолётного типа, <strong>братья Райт</strong>, 17 декабря 1903 года совершили 4 полёта на самолёте <strong>Flyer I</strong> по прямой с максимальной дальностью 260 метров и продолжительностью 59 секунд. Полёт осуществлялся при встречном ветре и с использованием катапультного устройства для пилота.</p>
     <p>Следующая версия, <strong>Flyer II</strong>, преодолела 5 километров. Спустя два года, 5 октября 1905, самолёт <strong>«Flyer III»</strong> (на рисунке) покрывал уже 39 км.</p>
-    <img src="images/03-flyer3.jpg" alt="Flyer III" class="slide-img">
+    <img src="03-flyer3.jpg" alt="Flyer III" class="slide-img">
   </div>
 
   <!-- Слайд 7 -->
@@ -233,8 +203,8 @@
     <p>Следующим шагом стал аппарат изобретателей французского происхождения братьев <strong>Бриге и Шарля Рише</strong>, построенный в 1907 г. Взлётная масса аппарата равнялась почти 600 кг, в конструкции было 4 винта диаметром по 4,1 метра. Назывался данный аппарат <strong>Gyroplane No. I</strong> (рисунок слева).</p>
     <p>К сожалению, взлететь ему удалось всего лишь на 60 сантиметров (впоследствии — на 1,5 метра), и полёт его был трудноуправляем. Тем не менее, уже в 1908 году появился <strong>Gyroplane No. II</strong> (рисунок справа) по схеме биплан, с винтами между крыльями, которому удалось совершить несколько полётов, прежде чем он разбился при жёсткой посадке. Схема гироплана (другие названия — гирокоптер, автожир) сейчас достаточно успешно используется в малой авиации как аналог небольшим пассажирским вертолётам.</p>
     <div class="img-row">
-      <img src="images/04-gyroplane1.jpg" alt="Gyroplane No. I" class="slide-img">
-      <img src="images/05-gyroplane2.jpg" alt="Gyroplane No. II" class="slide-img">
+      <img src="04-gyroplane1.jpg" alt="Gyroplane No. I" class="slide-img">
+      <img src="05-gyroplane2.jpg" alt="Gyroplane No. II" class="slide-img">
     </div>
   </div>
 
@@ -245,8 +215,8 @@
     <p>В 1917 году доктор <strong>Питер Купер</strong> и <strong>Элмер Сперри</strong> изобрели автоматический гиростабилизатор (гирокомпас), который позволял самолёту удерживать заданное направление полёта. В результате удалось превратить учебный самолёт <strong>Curtiss N-9</strong> <em>(рисунок слева)</em> в первую беспилотную летающую бомбу.</p>
     <p><strong>«Воздушная торпеда Кеттеринга»</strong> <em>(рисунок справа)</em> — деревянно-тканевый биплан с 300-фунтовой боевой нагрузкой, стартовавший с рельсовой катапульты для бомбардировки городов; первый действующий прообраз крылатой ракеты. В модификации, кроме гирокомпаса, счётчик оборотов винта оценивал оставшееся расстояние до цели — беспилотник сбрасывал крылья и становился пикирующей бомбой.</p>
     <div class="img-row">
-      <img src="images/06-curtiss-n9.jpg" alt="Curtiss N-9" class="slide-img">
-      <img src="images/07-kettering.jpg" alt="Жук Кеттеринга" class="slide-img">
+      <img src="06-curtiss-n9.jpg" alt="Curtiss N-9" class="slide-img">
+      <img src="07-kettering.jpg" alt="Жук Кеттеринга" class="slide-img">
     </div>
   </div>
 
@@ -258,8 +228,8 @@
     <p>К сожалению, как и у гироплана Бриге-Рише, конструкция Ботезата также оказалась сложной и громоздкой и не обеспечивала необходимой тяги для подъёма полезного груза на нужную высоту. Военные того времени решили прекратить финансирование проекта и отдать предпочтения автожирам.</p>
     <p>Но к этому времени его обошёл другой эмигрировавший в США авиаконструктор российского происхождения <strong>Игорь Сикорский</strong>, создавший первый серийный вертолёт <strong>Sikorsky R-4</strong>, который успешно взлетел в 1942 году. Одновинтовая схема вертолёта Sikorsky R-4 (рисунок справа) стала классической и до сих пор используется на большинстве аппаратов данного типа.</p>
     <div class="img-row">
-      <img src="images/08-botezat.jpg" alt="Вертолёт Ботезата" class="slide-img">
-      <img src="images/09-sikorsky.jpg" alt="Sikorsky R-4" class="slide-img">
+      <img src="08-botezat.jpg" alt="Вертолёт Ботезата" class="slide-img">
+      <img src="09-sikorsky.jpg" alt="Sikorsky R-4" class="slide-img">
     </div>
   </div>
 
@@ -269,7 +239,7 @@
     <span class="year">1935 год</span>
     <p>Для тренировки расчётов зенитной артиллерии в Великобритании был создан и в 1935 году совершил свой первый полёт радиоуправляемый самолёт-мишень <strong>De Havilland DH82B Queen Bee</strong> «Королева пчёл». Это был первый массовый полноразмерный радиоуправляемый самолёт.</p>
     <p>Всего было построено около 380 экземпляров данной модификации, а его основа Tiger Moth использовалась в Королевских ВВС до 1959 года.</p>
-    <img src="images/10-queenbee.jpg" alt="Queen Bee" class="slide-img">
+    <img src="10-queenbee.jpg" alt="Queen Bee" class="slide-img">
   </div>
 
   <!-- Слайд 11 -->
@@ -278,7 +248,7 @@
     <span class="year">1944 год</span>
     <p>Вторая мировая война запустила серьёзную гонку вооружений. Самым известным беспилотным агрегатом стала нацистская крылатая ракета <strong>Фау-1</strong> (на рисунке), показавшая перспективу массового применения беспилотных летательных аппаратов в боевых действиях.</p>
     <p>На начальном этапе Второй мировой войны авиапроизводитель Fieseler разработал <strong>Fieseler Fi-103</strong>, ставшую известной как Фау-1 (Vergeltungswaffe — оружие возмездия). Она является первой серийной крылатой ракетой, имевшей успешное боевое применение. Фау-1 была оснащена пульсирующим воздушно-реактивным двигателем, который позволял преодолевать расстояние в 250–400 км с бомбовой нагрузкой в 750–1000 кг.</p>
-    <img src="images/11-v1.jpg" alt="Фау-1" class="slide-img">
+    <img src="11-v1.jpg" alt="Фау-1" class="slide-img">
   </div>
 
   <!-- Слайд 12 -->
@@ -289,7 +259,7 @@
     <p>Армии США требовался малозаметный скоростной разведчик — «летающий внедорожник», который бы мог добраться в труднодоступные местности с минимальным риском обнаружить себя.</p>
     <p>Аппарат, построенный по схеме квадрокоптера, мог разгоняться до 51 км/ч и подниматься на высоту в 60 м, а также перевозить одного пассажира или около 100 кг груза.</p>
     <p>Всего было изготовлено два экземпляра, которые успешно прошли испытания, но не устроили заказчиков — военных, и проект был закрыт. Тем не менее, можно считать этот проект одним из предвестников современных аэротакси.</p>
-    <img src="images/12-vz7.jpg" alt="Curtiss-Wright VZ-7" class="slide-img">
+    <img src="12-vz7.jpg" alt="Curtiss-Wright VZ-7" class="slide-img">
   </div>
 
   <!-- Слайд 13 -->
@@ -310,7 +280,7 @@
     <span class="year">1978 год</span>
     <p>В 1978 году <strong>Israel Aircraft Industries</strong> разработали БПЛА <strong>Scout</strong> «разведчик» (на рисунке) — поршневой самолёт с 13-футовыми (около 4 метров) крыльями, изготовленными из стекловолокна. Его было достаточно сложно сбить благодаря небольшим размерам и малой радиолокационной заметности. Основная задача этого устройства — передавать оперативную информацию в реальном времени с обзорной 360° телекамеры, установленной на борту.</p>
     <p>В ходе Ливанской войны, в 1982 году израильские военные задействовали большое количество таких БПЛА для операции по разгрому группировки сил и средств противовоздушной обороны Сирии. Это было первое массированное и успешное применение БПЛА в боевых условиях. Scout и сейчас состоит на вооружении, несмотря на то что уже появились разведывательные БПЛА куда меньшего размера.</p>
-    <img src="images/13-scout.jpg" alt="IAI Scout" class="slide-img">
+    <img src="13-scout.jpg" alt="IAI Scout" class="slide-img">
   </div>
 
   <!-- Слайд 15 -->
@@ -318,7 +288,7 @@
     <h2>MQ-1 Predator</h2>
     <p>Среди вооружённых (ударных) БПЛА — известный <strong>MQ-1 Predator</strong> (на рисунке), разработанный в США. Изначально это был разведывательный БПЛА, на который после модернизации решили установить две ракеты класса «воздух-земля» для поражения различных наземных целей, будь то движущийся танк или подземный бункер.</p>
     <p>При этом оператор БПЛА может находиться за многие тысячи километров от места полёта аппарата — таковы возможности дальней радиосвязи военного беспилотника. На данный момент редкий военный конфликт обходится без участия MQ-1 Predator.</p>
-    <img src="images/14-predator.jpg" alt="MQ-1 Predator" class="slide-img">
+    <img src="14-predator.jpg" alt="MQ-1 Predator" class="slide-img">
   </div>
 
   <!-- Слайд 16 -->
@@ -327,8 +297,8 @@
     <p>Примером последних разработок является хорошо известный экспериментальный самолёт <strong>Northrop Grumman X-47B</strong> (рисунок слева), обладающий высокой степенью автономности и способный совершать большинство действий без вмешательства оператора. К примеру, в 2013 году он совершил автоматическую посадку на палубу авианосца, а в апреле 2015 года стал первым БПЛА, который произвёл дозаправку в воздухе. К сожалению, проект сворачивается из-за чрезвычайно высокой стоимости.</p>
     <p>В России 3 августа 2019 года совершил первый 20-минутный полёт тяжёлый ударный БПЛА нового поколения <strong>С-70 «Охотник»</strong> (рисунок справа) разработки ОКБ Сухого (облёт аэродрома на высоте 600 метров в полностью автономном режиме). В сентябре 2019 года «Охотник» выполнил первый совместный полёт с истребителем 5-го поколения Су-57 для отработки взаимодействия по расширению радиолокационного поля истребителя и целеуказанию для применения авиационных средств поражения.</p>
     <div class="img-row">
-      <img src="images/15-x47b.jpg" alt="X-47B" class="slide-img">
-      <img src="images/16-s70.jpg" alt="С-70 Охотник" class="slide-img">
+      <img src="15-x47b.jpg" alt="X-47B" class="slide-img">
+      <img src="16-s70.jpg" alt="С-70 Охотник" class="slide-img">
     </div>
   </div>
 
@@ -368,7 +338,7 @@
     <p style="margin-top:35px; color:#7fb8d6;">А теперь проверим знания! →</p>
   </div>
 
-  <!-- Слайд 20. Интро к тесту -->
+  <!-- Слайд 20 -->
   <div class="slide">
     <h2>📝 Проверим знания</h2>
     <p>Сейчас будет 5 вопросов по пройденной теме. В конце вы увидите свои ответы, правильные ответы и итоговый балл.</p>
@@ -380,7 +350,7 @@
     <p>Готовы? Листайте дальше! 🚀</p>
   </div>
 
-  <!-- Слайд 21. Вопрос 1 -->
+  <!-- Слайд 21 -->
   <div class="slide quiz-slide">
     <h2>Вопрос 1 из 5</h2>
     <p class="question">Какой аппарат считается первым беспилотником в истории?</p>
@@ -392,7 +362,7 @@
     </div>
   </div>
 
-  <!-- Слайд 22. Вопрос 2 -->
+  <!-- Слайд 22 -->
   <div class="slide quiz-slide">
     <h2>Вопрос 2 из 5</h2>
     <p class="question">Что изобрёл Никола Тесла в 1898 году?</p>
@@ -404,7 +374,7 @@
     </div>
   </div>
 
-  <!-- Слайд 23. Вопрос 3 -->
+  <!-- Слайд 23 -->
   <div class="slide quiz-slide">
     <h2>Вопрос 3 из 5</h2>
     <p class="question">Кто создал первый серийный вертолёт Sikorsky R-4?</p>
@@ -416,7 +386,7 @@
     </div>
   </div>
 
-  <!-- Слайд 24. Вопрос 4 -->
+  <!-- Слайд 24 -->
   <div class="slide quiz-slide">
     <h2>Вопрос 4 из 5</h2>
     <p class="question">Как называлась первая серийная крылатая ракета, успешно применённая в бою?</p>
@@ -428,7 +398,7 @@
     </div>
   </div>
 
-  <!-- Слайд 25. Вопрос 5 -->
+  <!-- Слайд 25 -->
   <div class="slide quiz-slide">
     <h2>Вопрос 5 из 5</h2>
     <p class="question">Какое достижение принадлежит американскому БПЛА Northrop Grumman X-47B?</p>
@@ -440,7 +410,7 @@
     </div>
   </div>
 
-  <!-- Слайд 26. Результаты -->
+  <!-- Слайд 26 -->
   <div class="slide">
     <h2>🎯 Результаты теста</h2>
     <div id="results-content"></div>
@@ -459,8 +429,6 @@
 (function() {
   "use strict";
 
-  document.getElementById('debug').style.display = 'block';
-
   var slides = document.querySelectorAll('.slide');
   var counter = document.getElementById('counter');
   var progress = document.getElementById('progress');
@@ -474,48 +442,23 @@
   var questionData = {
     q1: {
       text: 'Какой аппарат считается первым беспилотником в истории?',
-      answers: {
-        A: 'Аэростат с горячим дымом и гранатой',
-        B: 'Радиоуправляемая лодка Николы Теслы',
-        C: 'Самолёт-мишень De Havilland Queen Bee',
-        D: 'Самолёт Flyer I братьев Райт'
-      }
+      answers: { A: 'Аэростат с горячим дымом и гранатой', B: 'Радиоуправляемая лодка Николы Теслы', C: 'Самолёт-мишень De Havilland Queen Bee', D: 'Самолёт Flyer I братьев Райт' }
     },
     q2: {
       text: 'Что изобрёл Никола Тесла в 1898 году?',
-      answers: {
-        A: 'Первый вертолёт с одновинтовой схемой',
-        B: 'Гирокомпас для удержания курса самолёта',
-        C: 'Радиоуправляемую модель судна «Devil Automata»',
-        D: 'Первую крылатую ракету с автопилотом'
-      }
+      answers: { A: 'Первый вертолёт с одновинтовой схемой', B: 'Гирокомпас для удержания курса самолёта', C: 'Радиоуправляемую модель судна «Devil Automata»', D: 'Первую крылатую ракету с автопилотом' }
     },
     q3: {
       text: 'Кто создал первый серийный вертолёт Sikorsky R-4?',
-      answers: {
-        A: 'Георгий Ботезат',
-        B: 'Братья Бриге и Шарль Рише',
-        C: 'Игорь Сикорский',
-        D: 'Чарльз Кеттеринг'
-      }
+      answers: { A: 'Георгий Ботезат', B: 'Братья Бриге и Шарль Рише', C: 'Игорь Сикорский', D: 'Чарльз Кеттеринг' }
     },
     q4: {
       text: 'Как называлась первая серийная крылатая ракета, успешно применённая в бою?',
-      answers: {
-        A: 'Fieseler Fi-103 (Фау-1)',
-        B: 'Curtiss N-9',
-        C: 'IAI Scout',
-        D: 'MQ-1 Predator'
-      }
+      answers: { A: 'Fieseler Fi-103 (Фау-1)', B: 'Curtiss N-9', C: 'IAI Scout', D: 'MQ-1 Predator' }
     },
     q5: {
       text: 'Какое достижение принадлежит американскому БПЛА Northrop Grumman X-47B?',
-      answers: {
-        A: 'Первый совместный полёт с истребителем Су-57',
-        B: 'Автоматическая посадка на авианосец и дозаправка в воздухе',
-        C: 'Первое массированное применение в Ливанской войне',
-        D: 'Первый полёт с 300-фунтовой бомбой на борту'
-      }
+      answers: { A: 'Первый совместный полёт с истребителем Су-57', B: 'Автоматическая посадка на авианосец и дозаправка в воздухе', C: 'Первое массированное применение в Ливанской войне', D: 'Первый полёт с 300-фунтовой бомбой на борту' }
     }
   };
 
@@ -612,33 +555,27 @@
   function nextSlide() { if (current < total - 1) showSlide(current + 1); }
   function prevSlide() { if (current > 0) showSlide(current - 1); }
 
-  // Делаем функции глобальными для inline onclick
   window.nextSlide = nextSlide;
   window.prevSlide = prevSlide;
   window.copyResults = copyResults;
 
-  // Кнопки
   prevBtn.onclick = prevSlide;
   nextBtn.onclick = nextSlide;
 
-  // Клавиатура
   document.onkeydown = function(e) {
     e = e || window.event;
-    if (e.keyCode === 39 || e.keyCode === 32) { // стрелка вправо, пробел
+    if (e.keyCode === 39 || e.keyCode === 32) {
       if (e.preventDefault) e.preventDefault();
-      nextSlide();
-      return false;
+      nextSlide(); return false;
     }
-    if (e.keyCode === 37) { // стрелка влево
+    if (e.keyCode === 37) {
       if (e.preventDefault) e.preventDefault();
-      prevSlide();
-      return false;
+      prevSlide(); return false;
     }
-    if (e.keyCode === 36) showSlide(0); // Home
-    if (e.keyCode === 35) showSlide(total - 1); // End
+    if (e.keyCode === 36) showSlide(0);
+    if (e.keyCode === 35) showSlide(total - 1);
   };
 
-  // Свайпы
   var touchStartX = 0;
   document.addEventListener('touchstart', function(e) {
     touchStartX = e.changedTouches[0].screenX;
